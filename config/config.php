@@ -1,7 +1,7 @@
 <?php
 
-
-$config = parse_ini_file('/../config/initial.ini');
+//require_once(ROOT . DS . 'config' . DS . 'initial.ini');
+$config = parse_ini_file(ROOT . DS . 'config' . DS . 'initial.ini');
 
 Config::set('siteName', $config['siteName']);
 

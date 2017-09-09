@@ -1,11 +1,10 @@
 <?php
 
-
 function myAutoload($className){
+    //echo $className;
     $libPath = ROOT.DS.'lib'.DS.ucfirst($className).'Class.php';
-    $controllersPath = ROOT.DS.'controllers'.DS.str_replace('controller', '', ucfirst($className)).'Controller.php';
+    $controllersPath = ROOT.DS.'controllers'.DS.str_replace('Controller', '', ucfirst($className)).'Controller.php';
     $modelPath = ROOT.DS.'models'.DS.ucfirst($className).'.php';
-
     if ( file_exists($libPath) ){
         require_once($libPath);
     } elseif ( file_exists($controllersPath) ){
@@ -18,3 +17,7 @@ function myAutoload($className){
 }
 
 spl_autoload_register('myAutoload');
+
+
+
+

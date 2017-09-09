@@ -60,35 +60,34 @@ class Router
         $this->uri = urldecode(trim($uri, '/'));
 
         // Get defaults
-        $routes = Config::get('routes');
         $this->route = Config::get('defaultRoute');
         $this->controller = Config::get('defaultController');
         $this->action = Config::get('defaultAction');
 
-        $uri_parts = explode('?', $this->uri);
+        $uriParts = explode('?', $this->uri);
 
         // Get path like controller/action/param1/param2/.../...
-        $path = $uri_parts[0];
+        $path = $uriParts[0];
 
-        $path_parts = explode('/', $path);
+        $pathParts = explode('/', $path);
         
 
 
-        if ( count($path_parts) ){
+        if ( count($pathParts) ){
 
             // Get controller - next element of array
-            if ( current($path_parts) ){
-                $this->controller = strtolower(current($path_parts));
-                array_shift($path_parts);
+            if ( current($pathParts) ){
+                $this->controller = strtolower(current($pathParts));
+                array_shift($pathParts);
             }
             // Get action
-            if ( current($path_parts) ){
-                $this->action = strtolower(current($path_parts));
-                array_shift($path_parts);
+            if ( current($pathParts) ){
+                $this->action = strtolower(current($pathParts));
+                array_shift($pathParts);
             }
 
             // Get params - all the rest
-            $this->params = $path_parts;
+            $this->params = $pathParts;
 
         }
 
