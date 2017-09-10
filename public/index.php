@@ -14,8 +14,5 @@ App::run($_SERVER['REQUEST_URI']);
 ini_set('display_errors', 1);
 
 
-/*$obg = new User();
-$result = $obg->getByLogin('saniy@mail.ru');
-echo '<pre>';
-var_dump($result);*/
-Session::setFlash('Hello');
+
+

@@ -20,8 +20,8 @@
 
 
                 <li><a <?php if (App::getRouter()->getController() == 'pages') { ?>class="active"<?php } ?> href="/">Home</a></li>
-                <li><a <?php if (App::getRouter()->getController() == 'privats') { ?>class="active"<?php } ?> href="/privats/">Privat</a></li>
                 <?php if (Session::get('login')) { ?>
+                    <li><a <?php if (App::getRouter()->getController() == 'privats') { ?>class="active"<?php } ?> href="/privats/">Privat</a></li>
                     <li><a href="/users/logout"><?=Session::get('login')?> Logout</a></li>
                 <?php } ?>
 

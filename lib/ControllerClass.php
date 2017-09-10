@@ -7,6 +7,8 @@ class Controller{
     protected $model;
 
     protected $params;
+    
+    protected $errors = array();
 
     /**
      * @return mixed

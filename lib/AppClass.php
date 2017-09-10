@@ -25,9 +25,9 @@ class App{
 
 
         $layout = self::$router->getRoute();
-/*        if ( $controllerClass == 'PrivatsController' && Session::get('role') != true ){
+        if ( $controllerClass == 'PrivatsController' && Session::get('role') != true ){
                 Router::redirect('/users/login');
-        }*/
+        }
 
         // Calling controller's method
         $controllerObject = new $controllerClass();
