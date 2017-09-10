@@ -1,10 +1,10 @@
 <?php
 
 function myAutoload($className){
-    //echo $className;
-    $libPath = ROOT.DS.'lib'.DS.ucfirst($className).'Class.php';
-    $controllersPath = ROOT.DS.'controllers'.DS.str_replace('Controller', '', ucfirst($className)).'Controller.php';
-    $modelPath = ROOT.DS.'models'.DS.ucfirst($className).'.php';
+    $libPath = ROOT.DS.'lib'.DS.($className).'Class.php';
+    $controllersPath = ROOT.DS.'controllers'.DS.str_replace('Controller', '',$className).'Controller.php';
+    $modelPath = ROOT.DS.'models'.DS.$className.'.php';
+
     if ( file_exists($libPath) ){
         require_once($libPath);
     } elseif ( file_exists($controllersPath) ){

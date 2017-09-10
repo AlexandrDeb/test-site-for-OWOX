@@ -1,7 +1,8 @@
-<?php foreach($data['pages'] as $page_data) { ?>
+<?php
 
-    <div style="margin-top: 20px;">
-        <a href="/pages/view/<?=$page_data['alias']?>"><?=$page_data['title']?></a>
-    </div>
+if (Session::get('login')){
+   echo "<h2>".'Hello, '."</h2>". "<h2>".Session::get('login')."</h2>";
+}else{
 
-<?php } ?>
+    Router::redirect('/users/login');
+}

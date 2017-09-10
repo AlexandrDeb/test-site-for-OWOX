@@ -8,9 +8,14 @@ define('VIEWS_PATH', ROOT.DS.'views');
 require_once(ROOT . DS . 'lib' . DS . 'Init.php');
 require_once(ROOT . DS . 'config' . DS . 'config.php');
 
-//$router = new Router($_SERVER['REQUEST_URI']);
-
-
+session_start();
 App::run($_SERVER['REQUEST_URI']);
 
 ini_set('display_errors', 1);
+
+
+/*$obg = new User();
+$result = $obg->getByLogin('saniy@mail.ru');
+echo '<pre>';
+var_dump($result);*/
+Session::setFlash('Hello');

@@ -6,13 +6,13 @@ class Page extends Model
     public function getList()
     {
         // Текст запроса к БД
-        $sql = "SELECT alias, title FROM pages";
+        $sql = "SELECT  title, content FROM pages";
         $q = $this->db->query($sql);
         $array = array();
         $i = 0;
         while ($r = $q->fetch(PDO::FETCH_ASSOC)) {
-            $array[$i]['alias'] = $r['alias'];
             $array[$i]['title'] = $r['title'];
+            $array[$i]['content'] = $r['content'];
             $i++;
         }
         return $array;

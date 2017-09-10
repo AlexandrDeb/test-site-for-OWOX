@@ -14,7 +14,6 @@ class Router
     protected $route;
 
 
-
     /**
      * @return mixed
      */
@@ -70,18 +69,17 @@ class Router
         $path = $uriParts[0];
 
         $pathParts = explode('/', $path);
-        
 
 
-        if ( count($pathParts) ){
+        if (count($pathParts)) {
 
             // Get controller - next element of array
-            if ( current($pathParts) ){
+            if (current($pathParts)) {
                 $this->controller = strtolower(current($pathParts));
                 array_shift($pathParts);
             }
             // Get action
-            if ( current($pathParts) ){
+            if (current($pathParts)) {
                 $this->action = strtolower(current($pathParts));
                 array_shift($pathParts);
             }
@@ -91,6 +89,11 @@ class Router
 
         }
 
+    }
+
+    public static function redirect($location)
+    {
+        header("Location: $location");
     }
 
 

@@ -1,3 +1,6 @@
-<h1><?=$data['page']['title']?></h1>
 
-<?=$data['page']['content']?>
+
+
+<div style="margin-top: 20px;">
+<a href="/pages/view/<?=$data['alias']?>"><?=$page_data['title']?></a>
+</div>

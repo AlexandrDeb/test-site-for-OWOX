@@ -23,6 +23,12 @@ class App{
         $controllerClass = ucfirst(self::$router->getController()).'Controller';
         $controllerMethod = strtolower(self::$router->getAction());
 
+
+        $layout = self::$router->getRoute();
+/*        if ( $controllerClass == 'PrivatsController' && Session::get('role') != true ){
+                Router::redirect('/users/login');
+        }*/
+
         // Calling controller's method
         $controllerObject = new $controllerClass();
         if ( method_exists($controllerObject, $controllerMethod) ){
@@ -34,7 +40,6 @@ class App{
         } else {
             throw new Exception('Method '.$controllerMethod.' of class '.$controllerClass.' does not exist.');
         }
-        $layout = self::$router->getRoute();
         $layoutPath = VIEWS_PATH.DS.$layout.'.php';
         $layoutViewObject = new View(compact('content'), $layoutPath);
         echo $layoutViewObject->render();
