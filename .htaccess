@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+    ErrorDocument 404 http://owox.local/404.html
     RewriteEngine on
     RewriteRule ^$ public/ [L]
     RewriteRule (.*) public/$1 [L]

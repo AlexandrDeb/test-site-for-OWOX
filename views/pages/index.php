@@ -1,8 +1,8 @@
-<?php
+<?php if (Session::get('login')) { ?>
+    <h2>Добро пожаловать, <?= Session::get('login') ?></h2>
+    <div><?= Session::get('passwordFb') ?></div>
+    <div><?= Session::get('emailFb') ?></div>
 
-if (Session::get('login')){
-   echo "<h2>".'Hello, '."</h2>". "<h2>".Session::get('login')."</h2>";
-}else{
-
+<?php } else {
     Router::redirect('/users/login');
-}
+} ?>

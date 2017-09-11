@@ -19,10 +19,10 @@
             <ul class="nav navbar-nav">
 
 
-                <li><a <?php if (App::getRouter()->getController() == 'pages') { ?>class="active"<?php } ?> href="/">Home</a></li>
+                <li><a <?php if (App::getRouter()->getController() == 'pages') { ?>class="active"<?php } ?> href="/">Главная</a></li>
                 <?php if (Session::get('login')) { ?>
-                    <li><a <?php if (App::getRouter()->getController() == 'privats') { ?>class="active"<?php } ?> href="/privats/">Privat</a></li>
-                    <li><a href="/users/logout"><?=Session::get('login')?> Logout</a></li>
+                    <li><a <?php if (App::getRouter()->getController() == 'privats') { ?>class="active"<?php } ?> href="/privats/">Приватная</a></li>
+                    <li><a href="/users/logout"><?=Session::get('login')?> Выйти</a></li>
                 <?php } ?>
 
 
@@ -31,6 +31,12 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <?php if (Session::get('avatar')) { ?>
+            <img class="img" src="<?= Session::get('avatar'); ?>" />
+    <?php } ?>
+
+</div>
 
 <div class="container">
 
