@@ -1,7 +1,6 @@
 <?php
 if (Session::get('login')) {
-    header("HTTP/1.1 302 Moved Temporarily");
-    header("Location: / ");
+    header('Location: /', true, 301);
 }
 ?>
 
