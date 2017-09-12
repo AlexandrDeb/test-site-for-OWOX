@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cf0dbc23-bf1c-4e70-9e9e-13e447620ccc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initial.ini" afterPath="$PROJECT_DIR$/config/initial.ini" />
     </list>
     <ignored path="owox.local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -466,15 +465,15 @@
       <workItem from="1504986353089" duration="11106000" />
       <workItem from="1505030524974" duration="42758000" />
       <workItem from="1505117209642" duration="49367000" />
-      <workItem from="1505200595335" duration="7150000" />
+      <workItem from="1505200595335" duration="7769000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158233000" />
+    <option name="totallyTimeSpent" value="158852000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16385911" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
