@@ -1,8 +1,6 @@
 <?php
 if (!Session::get('login')) {
     header("Location: /");
-    
-
 }
 
 ?>
