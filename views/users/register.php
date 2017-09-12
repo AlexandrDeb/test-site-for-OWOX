@@ -1,14 +1,14 @@
 <?php
-
 if (Session::get('login')) {
-    //header("HTTP/1.1 301 Moved Permanently");
     header("HTTP/1.1 302 Moved Temporarily");
-    header("Location: http://owox.megamaks.net");
+    header("Location: / ");
 }
 ?>
 
 <div>
-    <a href="https://www.facebook.com/v2.9/dialog/oauth?client_id=<?= Config::get('id') ?>&redirect_uri=<?= Config::get('url') ?>&response_type=code&scope=public_profile,email,user_location">Войти через FB</a></div>
+    <a href="https://www.facebook.com/v2.9/dialog/oauth?client_id=<?= Config::get('id') ?>&redirect_uri=<?= Config::get('url') ?>&response_type=code&scope=public_profile,email,user_location">Регистрироваться
+        через фейсбук</a>
+</div>
 
 
 <h3>Форма регистрации</h3><br/>
@@ -27,3 +27,6 @@ if (Session::get('login')) {
     </div>
     <input type="submit" class="btn btn-success"/>
 </form>
+
+
+

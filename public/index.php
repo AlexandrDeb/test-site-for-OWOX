@@ -13,7 +13,7 @@ require_once(ROOT . DS . 'config' . DS . 'config.php');
 session_start();
 App::run($_SERVER['REQUEST_URI']);
 
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1);
 
 
 

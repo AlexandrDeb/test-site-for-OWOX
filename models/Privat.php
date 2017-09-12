@@ -4,7 +4,6 @@ class Privat extends Model
 {
     public function getPost()
     {
-        // Текст запроса к БД
         $sql = "SELECT  title, content FROM pages";
         $q = $this->db->query($sql);
         $array = array();

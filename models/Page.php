@@ -5,7 +5,6 @@ class Page extends Model
 
     public function getList()
     {
-        // Текст запроса к БД
         $sql = "SELECT  title, content FROM pages";
         $q = $this->db->query($sql);
         $array = array();
@@ -20,19 +19,14 @@ class Page extends Model
 
     public function getByAlias($alias)
     {
-        //Соединение с базой данных
 
         $sql = 'SELECT * FROM pages WHERE alias = :alias';
-
-        //подгоовка запроса
+        
         $result = $this->db->prepare($sql);
-
         $result->bindParam(':alias', $alias, PDO:: PARAM_INT);
         $result->setFetchMode(PDO::FETCH_ASSOC);
-        //выполнение запроса
         $result->execute();
-
-        //возвращение результата
+        
         return $result->fetch();
 
     }

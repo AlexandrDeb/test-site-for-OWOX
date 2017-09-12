@@ -29,6 +29,7 @@ class App
 
         $layout = self::$router->getRoute();
         if ($controllerClass == 'PrivatsController' && Session::get('login') == false) {
+            header("HTTP/1.1 401 Unauthorized");
             Router::redirect('/users/login');
           
         }

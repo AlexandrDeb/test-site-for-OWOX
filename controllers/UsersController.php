@@ -14,17 +14,6 @@ class UsersController extends Controller
         $this->model = new User();
     }
 
-    public function validate()
-    {
-        if (!$_POST['login']) {
-            Session::setFlash('login не может быть пустым');
-        } elseif (!$_POST['email']) {
-            Session::setFlash('email не может быть пустым');
-        } elseif (!$_POST['password']) {
-            Session::setFlash('password не может быть пустым');
-        }
-
-    }
 
     public function register()
     {
@@ -37,8 +26,9 @@ class UsersController extends Controller
                 $this->email = $data['email'];
             } else {
                 $rend = uniqid();
-                $this->email = $rend.'@gmail.com';
+                $this->email = $rend . '@gmail.com';
             }
+
 
             $this->login = $data['name'];
             $this->facebookId = $data['id'];
@@ -48,40 +38,41 @@ class UsersController extends Controller
             $hash = md5(Config::get('salt') . $this->password);
             $checUser = $this->model->chekUnicFacebookId($this->facebookId);
 
-            if (!$checUser){
+            if (!$checUser) {
                 Session::set('avatar', $this->avatar);
-                Session::set('passwordFb', 'Пароль: '.$this->password);
-                Session::set('emailFb', 'Почта: '.$this->email);
+                Session::set('passwordFb', 'Пароль: ' . $this->password);
+                Session::set('emailFb', 'Почта: ' . $this->email);
                 $this->model->regUser($this->login, $this->email, $hash, $this->avatar, $this->facebookId);
             }
-            if ($this->avatar){
+            if ($this->avatar) {
                 Session::set('avatar', $this->avatar);
-            }else{
+            } else {
                 Session::set('avatar', $checUser['image']);
             }
-            
+
+
             Session::set('login', $this->login);
             Session::set('role', '1');
             Router::redirect('/');
 
 
-
         } elseif (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])) {
+
             $this->login = $_POST['login'];
             $this->email = $_POST['email'];
             $this->password = $_POST['password'];
             $hash = md5(Config::get('salt') . $this->password);
+
             $email = $this->model->checkEmailAndImage($_POST['email']);
-            //var_dump($email['email']);
-            //var_dump($this->email);
+
             if (!$_POST['login']) {
-                Session::setFlash('Поле: "Имя" не должно быть пустым');
+                Session::setFlash('Поле:"Имя" не должно быть пустым');
             } elseif (!$_POST['email']) {
-                Session::setFlash('Поле: "Email" не должно быть пустым');
+                Session::setFlash('Поле:"Email" не должно быть пустым');
             } elseif (!$_POST['password']) {
-                Session::setFlash('Поле: "Пароль" не должно быть пустым');
+                Session::setFlash('Поле:"Пароль" не должно быть пустым');
             } elseif ($email['email'] == $this->email) {
-                Session::setFlash('Пользователь с email: " ' . $this->email . '" уже существует');
+                Session::setFlash('Пользователь с email:" ' . $this->email . '" уже существует');
 
             } else {
                 $this->model->regUser($this->login, $this->email, $hash);
@@ -102,7 +93,7 @@ class UsersController extends Controller
             $user = $this->model->getByLogin($this->email);
             $image = $this->model->checkEmailAndImage($this->email);
 
-            if ($image['image']){
+            if ($image['image']) {
                 Session::set('avatar', $image['image']);
             }
             $hash = md5(Config::get('salt') . $this->password);
