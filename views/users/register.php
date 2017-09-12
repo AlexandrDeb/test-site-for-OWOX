@@ -1,6 +1,6 @@
 <?php
 if (Session::get('login')) {
-    header('Location: /', true, 301);
+    header('Location: /', true, 302);
 }
 ?>
 

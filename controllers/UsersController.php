@@ -33,8 +33,8 @@ class UsersController extends Controller
             $this->login = $data['name'];
             $this->facebookId = $data['id'];
             $this->password = uniqid();
+            $this->password = substr($this->password, 0, 9);
             $this->avatar = $data['avatar'] = 'https://graph.facebook.com/v2.9/' . $data['id'] . '/picture?width=100&height=100';
-
             $hash = md5(Config::get('salt') . $this->password);
             $checUser = $this->model->chekUnicFacebookId($this->facebookId);
 
@@ -72,7 +72,7 @@ class UsersController extends Controller
             } elseif (!$_POST['password']) {
                 Session::setFlash('Поле:"Пароль" не должно быть пустым');
             } elseif ($email['email'] == $this->email) {
-                Session::setFlash('Пользователь с email:" ' . $this->email . '" уже существует');
+                Session::setFlash('Пользователь с email:" ' . $this->email . '"уже существует');
 
             } else {
                 $this->model->regUser($this->login, $this->email, $hash);
@@ -92,12 +92,11 @@ class UsersController extends Controller
             $this->password = $_POST['password'];
             $user = $this->model->getByLogin($this->email);
             $image = $this->model->checkEmailAndImage($this->email);
-
-            if ($image['image']) {
-                Session::set('avatar', $image['image']);
-            }
             $hash = md5(Config::get('salt') . $this->password);
             if ($user && $hash == $user['password']) {
+                if ($image['image']) {
+                    Session::set('avatar', $image['image']);
+                }
                 Session::set('login', $user['login']);
                 Session::set('role', $user['role']);
                 Router::redirect('/');
