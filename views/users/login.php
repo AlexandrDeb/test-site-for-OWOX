@@ -1,8 +1,6 @@
 <?php
 if (Session::get('login')) {
     header('Location: /', true, 302);
-}else{
-    header("HTTP/1.1 401 Unauthorized");
 }
 ?>
 
